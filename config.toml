@@ -1,4 +1,4 @@
-baseURL = "https://shaunnewman.com"
+baseURL = "/"
 languageCode = "en-us"
 title = "Shaun Newman"
 theme = "pulp"
