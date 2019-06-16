@@ -1,2 +1,5 @@
 [context.production.environment]
   HUGO_BASEURL = "https://shaunnewman.com"
+
+[context.deploy-preview.environment]
+  HUGO_BASEURL = "${DEPLOY_PRIME_URL}"
