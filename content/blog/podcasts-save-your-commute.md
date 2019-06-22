@@ -1,6 +1,7 @@
 ---
 title: "Podcasts Save Your Commute"
 date: 2019-06-21T09:58:28-07:00
+description: You should listen to podcasts during your commute to take advantage of a time that would not be valuable otherwise.
 draft: false
 ---
 
