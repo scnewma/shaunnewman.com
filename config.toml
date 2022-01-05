@@ -16,7 +16,7 @@ enableRobotsTXT = true
 		Software Engineer currently writing distributed systems in Go.
         Loves talking about Kubernetes, Docker, and Vim (the superior text editor).
     """
-    publicationYear = "2019"
+    publicationYear = "2022"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
     # singlePageDateFormat = "January 2, 2006"
     # custom_css = ["/css/custom.css"]
