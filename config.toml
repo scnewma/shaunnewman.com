@@ -12,9 +12,10 @@ enableRobotsTXT = true
     avatar = "avatar.jpg"
     favicon = "favicon.ico"
     description = """
-		Software Engineer currently writing distributed systems in Go.
+        Software Engineer currently writing distributed systems in Go.
         Loves talking about Kubernetes, Docker, and Vim (the superior text editor).
     """
+    metaDescription = "Shaun Newman is a software engineer writing distributed systems in Go."
     publicationYear = "2026"
 
 [outputs]
@@ -22,7 +23,7 @@ enableRobotsTXT = true
 
 [[menu.main]]
     identifier = "linkedin"
-    # name = "LinkedIn"
+    name = "LinkedIn"
     url = "https://www.linkedin.com/in/shaun-newman"
     weight = 10
     [menu.main.params]
@@ -30,7 +31,7 @@ enableRobotsTXT = true
 
 [[menu.main]]
     identifier = "github"
-    # name = "GitHub"
+    name = "GitHub"
     url = "https://github.com/scnewma"
     weight = 30
     [menu.main.params]

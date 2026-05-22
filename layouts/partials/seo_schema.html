@@ -1,27 +1,27 @@
 {{- $author := dict "@type" "Person" "name" .Site.Params.Author }}
+{{- $description := .Description | default .Site.Params.metaDescription | default .Site.Params.description | plainify }}
+{{- $schemaType := cond .IsPage "BlogPosting" "WebPage" }}
 <script type="application/ld+json">
 {
-    "@context" : "http://schema.org",
-    "@type" : "BlogPosting",
+    "@context" : "https://schema.org",
+    "@type" : {{ $schemaType }},
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": {{ .Site.BaseURL }}
+         "@id": {{ .Permalink }}
     },
-    "articleSection" : "{{ .Section }}",
     "name" : "{{ .Title }}",
     "headline" : "{{ .Title }}",
-    "description" : "{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}",
-    "inLanguage" : "en-US",
-	"author": {{ $author }},
+    "description" : {{ $description }},
+    "inLanguage" : "{{ .Site.LanguageCode }}",
+    "author": {{ $author }},
     "creator": {{ $author }},
     "publisher": {{ $author }},
-    "accountablePerson" : {{ $author }},
-    "copyrightHolder" : {{ $author }},
+    "url" : {{ .Permalink }}{{ if .IsPage }},
+    "articleSection" : "{{ .Section }}",
     "copyrightYear" : "{{ .Date.Format "2006" }}",
     "datePublished": "{{ .Date }}",
     "dateModified" : "{{ .Date }}",
-    "url" : {{ .Permalink }},
     "wordCount" : {{ .WordCount }},
-    "keywords" : [ {{ if isset .Params "tags" }}{{ range .Params.tags }}"{{ . }}",{{ end }}{{ end }}"Blog" ]
+    "keywords" : [ {{ if isset .Params "tags" }}{{ range .Params.tags }}"{{ . }}",{{ end }}{{ end }}"Blog" ]{{ end }}
 }
 </script>

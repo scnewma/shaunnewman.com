@@ -1,5 +1,6 @@
 <head>
   {{ partial "seo_schema" . }}
+  {{ $description := .Description | default .Site.Params.metaDescription | default .Site.Params.description | plainify }}
   <title>
       {{ if eq .Title .Site.Title }}
           {{ .Site.Title }}
@@ -11,7 +12,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="{{ .Site.Params.Author }}" />
+  <meta name="description" content="{{ $description }}" />
   <meta name="msvalidate.01" content="B41D4DA0E11E9556504BB263FA894D8C" />
+  <link rel="canonical" href="{{ .Permalink }}" />
   <link rel="shortcut icon" type="image/x-icon" href="/img/{{ .Site.Params.favicon }}">
 
   <!-- css -->
