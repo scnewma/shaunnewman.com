@@ -34,7 +34,7 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v19
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Set blogroll cache date
         id: blogroll-cache-date
         run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
@@ -61,4 +61,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
