@@ -1,0 +1,25 @@
+{{ define "main"}}
+  {{ partial "header.html" . }}
+  <div id="contentBody" class="blogrollBody">
+    <h1 class="blogrollTitle">{{ .Title }}</h1>
+    {{ with site.Data.blogroll.groups }}
+      {{ range . }}
+        {{ if .articles }}
+          <h2>{{ .title }}</h2>
+          {{ range .articles }}
+            <p class="blogrollItem">
+              <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a><br>
+              <small>
+                {{- with .feed.title }}{{ . }}{{ end -}}
+                {{- with .publishedAt }} · {{ time.Format "January 2, 2006" . }}{{ end -}}
+              </small>
+            </p>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      <p>No blogroll data generated yet.</p>
+    {{ end }}
+  </div>
+  {{ partial "footer.html" . }}
+{{ end }}

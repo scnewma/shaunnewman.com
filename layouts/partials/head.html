@@ -21,6 +21,116 @@
   {{ $css := slice $style $markdown $syntaxHighlight | resources.Concat "style.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.Permalink }}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>
+    .siteHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      text-align: left;
+    }
+
+    .homeHeader {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      width: auto;
+      margin-bottom: 0;
+    }
+
+    .siteBrand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      text-decoration: none;
+    }
+
+    .siteBrand .avatar {
+      position: relative;
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .siteBrand .avatar img {
+      position: absolute;
+      width: 36px;
+      left: 0;
+      right: auto;
+    }
+
+    .siteBrand .avatarMask {
+      clip-path: circle(17px at center);
+      -webkit-clip-path: circle(17px at center);
+    }
+
+    .siteBrand .author {
+      overflow: hidden;
+      font-size: 16px;
+      font-weight: 500;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .topLink {
+      flex: 0 0 auto;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      text-transform: lowercase;
+    }
+
+    .topLink::after {
+      content: "";
+      display: block;
+      height: 1px;
+      margin-top: 2px;
+      background-color: #c9c9c9;
+      transform: scaleX(0.65);
+      transition: transform 120ms ease-in-out;
+    }
+
+    .topLink:hover::after {
+      transform: scaleX(1);
+    }
+
+    .blogrollBody {
+      padding-top: 0;
+    }
+
+    #contentBody .blogrollTitle {
+      margin: 0 0 18px;
+      padding-bottom: 0;
+      border-bottom: 0;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .blogrollBody h2 {
+      margin-top: 28px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .blogrollItem {
+      margin: 14px 0;
+    }
+
+    .blogrollItem a {
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .blogrollItem small {
+      color: #999;
+    }
+  </style>
 
   <!-- custom css -->
   {{ range .Site.Params.custom_css }}

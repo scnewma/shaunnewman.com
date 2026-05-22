@@ -1,0 +1,10 @@
+<header class="siteHeader{{ if eq .Section "blogroll" }} compactHeader{{ end }}">
+  <a class="siteBrand" href="{{ .Site.BaseURL }}">
+    <span class="avatar">
+      <img class="avatarMask" src="{{ .Site.BaseURL }}/img/{{ .Site.Params.avatar }}" alt="">
+      <img src="{{ .Site.BaseURL }}/img/avatar-border.svg" alt="">
+    </span>
+    <span class="author">{{ .Site.Params.Author }}</span>
+  </a>
+  <a class="topLink" href="/blogroll/">Blogroll</a>
+</header>

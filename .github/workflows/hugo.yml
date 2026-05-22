@@ -35,6 +35,14 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Set blogroll cache date
+        id: blogroll-cache-date
+        run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+      - name: Cache blogroll data
+        uses: actions/cache@v4
+        with:
+          path: data/blogroll.json
+          key: blogroll-data-${{ steps.blogroll-cache-date.outputs.date }}
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
