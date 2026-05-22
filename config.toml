@@ -2,7 +2,6 @@ baseURL = "https://shaunnewman.com"
 languageCode = "en-us"
 title = "Shaun Newman"
 theme = "pulp"
-canonifyurls = true
 enableRobotsTXT = true
 
 [taxonomies]
