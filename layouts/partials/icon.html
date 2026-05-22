@@ -1,0 +1,3 @@
+{{ $name := . }}
+{{ $path := printf "vendor/fontawesome/svgs/brands/%s.svg" $name }}
+{{ readFile (printf "static/%s" $path) | safeHTML }}

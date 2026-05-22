@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.LanguageCode }}">
   {{- partial "head.html" . -}}
   <body>
     <header class="siteHeader homeHeader">
       <span></span>
       <a class="topLink" href="/blogroll/">Blogroll</a>
     </header>
-    <div id="profileContainer">
+    <main>
+      <div id="profileContainer">
       <div id="profile">
         <header>
           <!-- avator -->
           <div class="avatar">
-            <img class="avatarMask" src="/img/{{ .Site.Params.avatar }}" alt="avatar">
-            <img src="/img/avatar-border.svg" alt="avatar-border">
+            <img class="avatarMask" src="/img/{{ .Site.Params.avatar }}" alt="Shaun Newman" width="100" height="100">
+            <img src="/img/avatar-border.svg" alt="" width="100" height="100">
           </div>
           <!-- author -->
           <h1 class="author">{{ .Site.Params.Author }}</h1>
@@ -25,12 +26,13 @@
         <nav>
           <ul>
             {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL }}" aria-label="{{ .Identifier }}">{{ .Pre }}<br>{{ .Name }}</a></li>
+            <li><a href="{{ .URL }}" aria-label="{{ .Name }}">{{ with .Params.icon }}<span class="navIcon">{{ partial "icon.html" . }}</span><br>{{ end }}{{ .Name }}</a></li>
             {{ end }}
           </ul>
         </nav>
       </div>
-    </div>
+      </div>
+    </main>
     {{- partial "footer.html" . -}}
   </body>
 </html>

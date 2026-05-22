@@ -22,14 +22,16 @@ enableRobotsTXT = true
 
 [[menu.main]]
     identifier = "linkedin"
-    # name = "Blog" #If display text link, cancel comment out
-    pre = "<i class='fab fa-linkedin fa-lg'></i>" #Choose your favorite font from Font Awesome
+    # name = "LinkedIn"
     url = "https://www.linkedin.com/in/shaun-newman"
     weight = 10
+    [menu.main.params]
+        icon = "linkedin"
 
 [[menu.main]]
     identifier = "github"
     # name = "GitHub"
-    pre = "<i class='fab fa-github fa-lg'></i>"
     url = "https://github.com/scnewma"
     weight = 30
+    [menu.main.params]
+        icon = "github"

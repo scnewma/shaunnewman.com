@@ -20,8 +20,14 @@
   {{ $syntaxHighlight := resources.Get "css/syntax-highlight.css" }}
   {{ $css := slice $style $markdown $syntaxHighlight | resources.Concat "style.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $css.Permalink }}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <style>
+    .navIcon svg {
+      width: 1.25em;
+      height: 1.25em;
+      fill: currentColor;
+      vertical-align: -0.125em;
+    }
+
     .siteHeader {
       display: flex;
       align-items: center;
