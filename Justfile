@@ -10,5 +10,5 @@ _default:
 hugo-version:
     {{hugo}} version
 
-build: hugo-version
-    {{hugo}} --minify --baseURL "{{base_url}}"
+build site_url=base_url: hugo-version
+    {{hugo}} --minify --baseURL "{{site_url}}"
