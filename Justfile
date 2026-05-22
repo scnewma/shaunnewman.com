@@ -17,7 +17,7 @@ build site_url=base_url: hugo-version generate-blogroll
     {{hugo}} --minify --baseURL "{{site_url}}"
 
 run: generate-blogroll
-    {{hugo}} server
+    {{hugo}} server --disableFastRender
 
 generate-blogroll:
     mkdir -p "$(dirname '{{blogroll_output}}')"
