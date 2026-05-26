@@ -3,7 +3,7 @@ set shell := ["bash", "-euo", "pipefail", "-c"]
 nixpkgs := "github:NixOS/nixpkgs/cc0fcdd5874deabbdb54fa54ad0df957f3f04c52"
 hugo := "nix run " + nixpkgs + "#hugo --"
 base_url := "https://shaunnewman.com/"
-simple_rss := "github.com/scnewma/simple-rss@v0.1.1"
+simple_rss := "github.com/scnewma/simple-rss@v0.2.0"
 blogroll_config := "data/blogroll-feeds.json"
 blogroll_output := "data/blogroll.json"
 
