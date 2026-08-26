@@ -1,0 +1,42 @@
+name: PR checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      NIXPKGS: github:NixOS/nixpkgs/cc0fcdd5874deabbdb54fa54ad0df957f3f04c52
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Check whitespace errors
+        run: git diff --check origin/${{ github.base_ref }}...HEAD
+      - name: Validate blogroll feed JSON
+        run: python3 -m json.tool data/blogroll-feeds.json >/dev/null
+      - name: Set blogroll cache date
+        id: blogroll-cache-date
+        run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+      - name: Restore blogroll data cache
+        uses: actions/cache/restore@v5
+        with:
+          path: data/blogroll.json
+          key: blogroll-data-${{ steps.blogroll-cache-date.outputs.date }}
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v22
+      - name: Build site
+        env:
+          HUGO_ENVIRONMENT: production
+        run: nix run "$NIXPKGS#just" -- build "https://shaunnewman.com/"
